@@ -3,12 +3,6 @@ library(zipcode)
 library(RColorBrewer)
 data(zipcode)
 
-newzips <- mclapply(names(Zipped), function(x) {
-	if(nchar(x) == 4) {
-		x <- paste(x,"0",sep="")
-	}
-	})
-
 zipcode$plotter <- 0
 zipcode$plotter[which(zipcode$zip %in% names(Zipped))] <- 1
 zipcode$plotter <- as.factor(zipcode$plotter)
